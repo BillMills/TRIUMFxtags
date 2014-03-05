@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script src="../x-tag-components.js" type="text/javascript"></script>
+		<script src="xInputTable.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" type="text/css" href="xInputTable.css"/>
+	</head>
+
+	<body>
+		<x-InputTable id='demoTable' columns='Isotope,Half-Life (s),Yield/s,Hide/Show' types='text,number,number,checkbox' values=',0,0'></x-InputTable>
+		<button id='addrow'>New Row</button>
+
+		<script>
+			document.addEventListener('DOMComponentsLoaded', function(){
+				document.getElementById('addrow').onclick = function(){
+					document.getElementById('demoTable').insertRow()
+				}
+
+				document.getElementById('demoTable').changeCallback = function(){
+					console.log('test')
+				};
+			});
+		</script>
+	</body>
+</html>
