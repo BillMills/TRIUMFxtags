@@ -11,3 +11,5 @@ See `demo.html` for some minimal use.  The following properties should be define
  - `values`: as `types`, but for the `value` property.
 
 In order to enable a callback any time any of the input elements in the table change, assign the desired callback function to your xInputTable's `.changeCallback` property.
+
+Call xInputTable's `.insertRow()` method to insert a new blank row at the bottom of the table.
