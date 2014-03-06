@@ -63,7 +63,7 @@
         methods: {
             'insertRow': function(){
                 var newRow = document.createElement('tr'),
-                    newCell, newInput, i;
+                    newCell, newInput, newLabel, i;
 
                 //make a new row
                 newRow.setAttribute('id', this.id+'InputRow'+this.buffer.rows);
@@ -83,6 +83,14 @@
                         this.parentNode.parentNode.parentNode.changeCallback;
                     }
                     document.getElementById(this.id+'Row'+this.buffer.rows+'Cell'+i).appendChild(newInput);               
+                    //checkboxes are special - default them on and put a label for doing styles:
+                    if(this.buffer.types[i] == 'checkbox'){
+                        newInput.setAttribute('checked', true);
+                        newLabel = document.createElement('label');
+                        newLabel.setAttribute('id', this.id+'Row'+this.buffer.rows+'Cell'+i+'label');
+                        newLabel.setAttribute('for', this.id+'Row'+this.buffer.rows+'Cell'+i+this.buffer.types[i]);
+                        document.getElementById(this.id+'Row'+this.buffer.rows+'Cell'+i).appendChild(newLabel);    
+                    }
                 }
                 //increment row counter
                 this.buffer.rows += 1;
